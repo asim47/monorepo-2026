@@ -1,0 +1,96 @@
+{
+  "name": "nodejs-boilerplate-2026",
+  "version": "1.0.0",
+  "description": "Node.js TypeScript boilerplate",
+  "private": true,
+  "workspaces": [
+    "app/*",
+    "shared/*"
+  ],
+  "scripts": {
+    "add-project": "node scripts/add-project.js",
+    "dev": "npm -w app/server run dev & npm -w app/web run dev & npm -w app/admin run dev",
+    "build": "npm -w app/server run build && npm -w app/web run build && npm -w app/admin run build",
+    "dev:server": "npm -w app/server run dev",
+    "dev:web": "npm -w app/web run dev",
+    "dev:admin": "npm -w app/admin run dev",
+    "prebuild:mobile": "npm -w app/mobile-app run prebuild",
+    "dev:mobile": "npm -w app/mobile-app run dev",
+    "build:server": "npm -w app/server run build",
+    "build:web": "npm -w app/web run build",
+    "build:admin": "npm -w app/admin run build",
+    "mobile:start": "npm -w app/mobile-app run start",
+    "mobile:android": "npm -w app/mobile-app run android",
+    "mobile:ios": "npm -w app/mobile-app run ios",
+    "mobile:web": "npm -w app/mobile-app run web",
+    "lint:staged": "npm run lint:server && npm run lint:web && npm run lint:admin && npm run lint:mobile",
+    "lint:server": "npm -w app/server run lint:fix",
+    "lint:web": "npm -w app/web run lint:fix",
+    "lint:admin": "npm -w app/admin run lint:fix",
+    "lint:mobile": "npm -w app/mobile-app run lint:fix",
+    "db:up": "npm -w app/server run db:up",
+    "db:down": "npm -w app/server run db:down",
+    "db:stop": "npm -w app/server run db:stop",
+    "db:logs": "npm -w app/server run db:logs",
+    "db:reset": "npm -w app/server run db:reset",
+    "db:test": "npm -w app/server run db:test",
+    "db:studio": "npm -w app/server run db:studio",
+    "db:generate": "npm -w app/server run db:generate",
+    "db:migrate": "npm -w app/server run db:migrate",
+    "db:migrate:deploy": "npm -w app/server run db:migrate:deploy",
+    "db:migrate:reset": "npm -w app/server run db:migrate:reset",
+    "db:migrate:new": "npm -w app/server run db:migrate:new",
+    "db:migrate:list": "npm -w app/server run db:migrate:list",
+    "db:migrate:up": "npm -w app/server run db:migrate:up",
+    "db:migrate:down": "npm -w app/server run db:migrate:down",
+    "db:migrate:status": "npm -w app/server run db:migrate:status",
+    "type-check:server": "npm -w app/server run type-check",
+    "type-check:web": "npm -w app/web run type-check",
+    "format:server": "npm -w app/server run format",
+    "format:web": "npm -w app/web run format",
+    "dev:test": "npm -w app/test run dev",
+    "build:test": "npm -w app/test run build",
+    "lint:test": "npm -w app/test run lint:fix"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@repo/config": "0.0.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.4",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.7.4",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.51.0"
+  },
+  "overrides": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0"
+  },
+  "lint-staged": {
+    "app/server/**/*.{ts,tsx}": [
+      "npm -w app/server exec -- eslint --config eslint.config.mjs --fix",
+      "npm -w app/server exec -- prettier --write"
+    ],
+    "app/web/**/*.{ts,tsx,js,jsx}": [
+      "npm -w app/web exec -- eslint --config eslint.config.mjs --fix",
+      "npm -w app/web exec -- prettier --write"
+    ],
+    "app/admin/**/*.{ts,tsx,js,jsx}": [
+      "npm -w app/admin exec -- eslint --config eslint.config.mjs --fix",
+      "npm -w app/admin exec -- prettier --write"
+    ],
+    "app/mobile-app/**/*.{ts,tsx,js,jsx}": [
+      "npm -w app/mobile-app run lint:fix"
+    ],
+    "*.{json,md}": [
+      "prettier --write"
+    ],
+    "app/test/**/*.{ts,tsx,js,jsx}": [
+      "npm -w app/test exec -- eslint --fix",
+      "npm -w app/test exec -- prettier --write"
+    ]
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

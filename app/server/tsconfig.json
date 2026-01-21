@@ -1,0 +1,14 @@
+{
+  "extends": "../../shared/config/ts/node.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@repo/*": [
+        "../../shared/*/src"
+      ]
+    },
+    "outDir": "./dist",
+    "rootDir": "."
+  },
+  "include": ["./**/*.ts"]
+}

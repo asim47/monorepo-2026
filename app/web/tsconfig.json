@@ -1,0 +1,23 @@
+{
+  "extends": "../../shared/config/ts/next.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@shared/*": [
+        "./node_modules/@shared/*"
+      ]
+    },
+    "allowJs": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "incremental": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"]
+}

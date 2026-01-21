@@ -1,0 +1,10 @@
+{
+  "include": [
+    "app/**/*.ts",
+    "shared/**/*.ts"
+  ],
+  "exclude": [
+    "**/node_modules",
+    "**/dist"
+  ]
+}
