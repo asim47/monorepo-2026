@@ -50,7 +50,10 @@
     "format:web": "npm -w app/web run format",
     "dev:test": "npm -w app/test run dev",
     "build:test": "npm -w app/test run build",
-    "lint:test": "npm -w app/test run lint:fix"
+    "lint:test": "npm -w app/test run lint:fix",
+    "dev:web-app": "npm -w app/web-app run dev",
+    "build:web-app": "npm -w app/web-app run build",
+    "lint:web-app": "npm -w app/web-app run lint:fix"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.2",
@@ -90,6 +93,10 @@
     "app/test/**/*.{ts,tsx,js,jsx}": [
       "npm -w app/test exec -- eslint --fix",
       "npm -w app/test exec -- prettier --write"
+    ],
+    "app/web-app/**/*.{ts,tsx,js,jsx}": [
+      "npm -w app/web-app exec -- eslint --config eslint.config.js --fix",
+      "npm -w app/web-app exec -- prettier --write"
     ]
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
